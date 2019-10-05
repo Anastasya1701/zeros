@@ -8,9 +8,11 @@ module.exports = function zeros(expression) {
     // Distributed arrays with factorials and define them to numbers
         for(let i = 0; i<MasWithFact.length; i++){
             if(MasWithFact[i].includes('!!')){
-                DoubleFactorial.push(parseInt(MasWithFact[i]));
+                let numbersDouble = parseFloat(MasWithFact[i]);
+                DoubleFactorial.push(numbersDouble);
             } else {
-                LoneFactorial.push(parseInt(MasWithFact[i]));
+                let numbersOne = parseFloat(MasWithFact[i]);
+                LoneFactorial.push(numbersOne);
             }           
         }      
 
@@ -35,20 +37,18 @@ module.exports = function zeros(expression) {
     
     // Counting zeros
             let result = 0;
-            for(let i of MasWithNumbers){ 
-                if(i % 5 === 0 ){
-                    x = i;
+            MasWithNumbers.map( num => {    
+                if(num % 5 === 0 ){
+                     x = num;
                     while(x % 5 === 0){ 
-                         x=x/5 ;                 
-                         result++;
-                    }
+                        x=x/5 ;                 
+                        result++;
+                        }
                 } 
                 if(!MasWithNumbers.includes(2)) {
-                    result = 0;
+                        result = 0;
                 }
-               }
-            
-            
+            })   
             return result    
     }
 
